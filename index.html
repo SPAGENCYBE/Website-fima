@@ -12,32 +12,50 @@
         
         /* Navigatie */
         header { background-color: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; max-width: 1200px; margin: 0 auto; }
-        nav .logo { font-size: 24px; font-weight: bold; color: #004b87; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 50px; max-width: 1200px; margin: 0 auto; }
+        nav .logo img { height: 60px; width: auto; display: block; }
         nav ul { list-style: none; display: flex; gap: 20px; }
         nav ul li a { font-weight: 600; color: #555; transition: color 0.3s; }
         nav ul li a:hover { color: #004b87; }
 
         /* Hero Sectie */
-        .hero { background: linear-gradient(rgba(0, 75, 135, 0.8), rgba(0, 75, 135, 0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; color: white; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; }
+        .hero { 
+            background: linear-gradient(rgba(0, 75, 135, 0.7), rgba(0, 75, 135, 0.7)), url('fima06.jpg') center/cover; 
+            color: white; 
+            height: 80vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 0 20px; 
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; }
         .btn { display: inline-block; background-color: #ff9800; color: white; padding: 15px 30px; font-size: 1.1rem; font-weight: bold; border-radius: 5px; transition: background 0.3s; }
         .btn:hover { background-color: #e68a00; }
 
         /* Algemene sectie styling */
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 2.5rem; color: #004b87; margin-bottom: 40px; text-align: center; }
+        h2 { font-size: 2.5rem; color: #004b87; margin-bottom: 40px; text-align: center; position: relative; padding-bottom: 15px; }
+        h2::after { content: ''; width: 60px; height: 4px; background: #ff9800; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
         
         /* Over FIMA */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-image img { width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         
         /* Diensten & Productie (Cards) */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #004b87; transition: transform 0.3s; }
+        .card { background: white; padding: 0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; border-top: 4px solid #004b87; transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); }
+        .card-img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 25px; }
         .card h3 { color: #004b87; margin-bottom: 15px; }
-        .card ul { margin-left: 20px; margin-top: 10px; }
+        .card ul { margin-left: 20px; margin-top: 10px; font-size: 0.95rem; }
+
+        /* Foto Gallerij Intermezzo */
+        .photo-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 20px 0; max-width: 100%; }
+        .photo-strip img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; }
 
         /* Team & Contact */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
@@ -46,89 +64,103 @@
         .team-list strong { color: #004b87; }
 
         /* Footer */
-        footer { background-color: #333; color: white; text-align: center; padding: 30px 20px; margin-top: 50px; }
+        footer { background-color: #004b87; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
 
         /* Responsiveness */
         @media (max-width: 768px) {
             .about-grid, .contact-grid { grid-template-columns: 1fr; }
-            nav { flex-direction: column; gap: 15px; }
-            .hero h1 { font-size: 2rem; }
+            .photo-strip { grid-template-columns: 1fr 1fr; }
+            nav { flex-direction: column; padding: 20px; }
+            nav ul { margin-top: 20px; gap: 10px; font-size: 0.9rem; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigatie -->
     <header>
         <nav>
-            <div class="logo">FIMA Airtechnic NV</div>
+            <div class="logo">
+                <img src="LOGO FAT.pdf" alt="FIMA Airtechnic Logo">
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#over-ons">Over FIMA</a></li>
-                <li><a href="#diensten">Service & Productie</a></li>
+                <li><a href="#diensten">Expertise</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Sectie -->
     <section id="home" class="hero">
         <h1>FIMA - Fans for life!</h1>
-        <p>Al sinds 1983 uw betrouwbare partner voor industriële luchttechnische installaties, ontstofinstallaties en op maat gemaakte ventilatoren.</p>
-        <a href="#contact" class="btn">Vraag een vrijblijvende audit aan</a>
+        <p>Al sinds 1983 uw betrouwbare partner voor industriële luchttechnische installaties en op maat gemaakte ventilatoren.</p>
+        <a href="#contact" class="btn">Vraag een audit aan</a>
     </section>
 
-    <!-- Over FIMA Sectie -->
     <section id="over-ons">
         <h2>Over Ons</h2>
         <div class="about-grid">
-            <div>
-                <p><strong>Fans for Life!</strong> verwijst naar “voor het leven”. Zowel in de zin van robuustheid en kwaliteit (voor altijd), als in de zin van de levenskwaliteit van arbeiders: wij ventileren de ruimte en onttrekken slechte lucht.</p>
+            <div class="about-text">
+                <p><strong>Fans for Life!</strong> verwijst naar duurzaamheid. Zowel in de zin van robuustheid en kwaliteit, als in de zin van de levenskwaliteit van arbeiders: wij ventileren de ruimte en onttrekken schadelijke stoffen.</p>
                 <br>
-                <p>Opgericht in 1983 en sinds 1998 volledig zelfstandig. Onder leiding van Tom Van Uytfang streeft ons energieke team naar continue verbetering. Omdat wij het hele proces – van voorstudie (audit) en engineering tot productie en montage – zelf in handen hebben, garanderen wij ventilatoren van topkwaliteit op maat.</p>
+                <p>Onder leiding van Tom Van Uytfang streeft ons team naar perfectie. Omdat wij het hele proces – van voorstudie en engineering tot productie en montage – zelf in handen hebben, garanderen wij maatwerk van topkwaliteit.</p>
             </div>
-            <div>
-                <img src="https://images.unsplash.com/photo-1565515266854-51e9dbb562a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Industriële ventilatie" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <div class="about-image">
+                <img src="DSC00426.jpg" alt="FIMA Productiehal">
             </div>
         </div>
     </section>
 
-    <!-- Diensten & Productie Sectie -->
+    <div class="photo-strip">
+        <img src="17.jpg" alt="Project detail">
+        <img src="CRW_3557.jpg" alt="Ventilator detail">
+        <img src="CRW_3808.jpg" alt="Industriële installatie">
+        <img src="IMG_0465.jpg" alt="Montage werkzaamheden">
+    </div>
+
     <section id="diensten">
         <h2>Onze Expertise</h2>
         <div class="services-grid">
             <div class="card">
-                <h3>Engineering & Productie</h3>
-                <p>Na een grondige audit berekenen en ontwerpen onze engineers een sluitend voorstel op maat.</p>
-                <ul>
-                    <li>Industriële radiaal- en axiaalventilatoren</li>
-                    <li>Gasverdichters</li>
-                    <li>Explosievrije ventilatoren (ATEX)</li>
-                    <li>Geluidsdempende omkastingen</li>
-                </ul>
+                <img src="fima06.jpg" alt="Engineering" class="card-img">
+                <div class="card-content">
+                    <h3>Engineering & Productie</h3>
+                    <p>Onze engineers ontwerpen sluitende voorstellen op maat na een grondige audit.</p>
+                    <ul>
+                        <li>Radiaal- en axiaalventilatoren</li>
+                        <li>Explosievrije ventilatoren (ATEX)</li>
+                        <li>Geluidsdempende omkastingen</li>
+                    </ul>
+                </div>
             </div>
             <div class="card">
-                <h3>Onderhoud & Herstellingen</h3>
-                <p>Ons team van vakspecialisten zorgt voor een supersnelle service om lange stilstanden te vermijden.</p>
-                <ul>
-                    <li>Onderhoud van FIMA- en andere ventilatoren</li>
-                    <li>Aanpassingen aan nieuwe machinerichtlijnen</li>
-                    <li>Snelle levering van wisselstukken</li>
-                </ul>
+                <img src="PICT0189.jpg" alt="Onderhoud" class="card-img">
+                <div class="card-content">
+                    <h3>Service & Herstellingen</h3>
+                    <p>Vakspecialisten zorgen voor snelle interventies om stilstanden te minimaliseren.</p>
+                    <ul>
+                        <li>Onderhoud van alle merken</li>
+                        <li>Snelle levering wisselstukken</li>
+                        <li>Upgrades naar nieuwe richtlijnen</li>
+                    </ul>
+                </div>
             </div>
             <div class="card">
-                <h3>Montage & Metingen</h3>
-                <p>Een complete service, van de eerste ontwikkeling tot de finale opstart en betrouwbare nazorg.</p>
-                <ul>
-                    <li>Montage en opstart op locatie</li>
-                    <li>Uitbalanceren ter plaatse (Brüel Kjaer Vibrotest 60)</li>
-                    <li>Metingen (druk, debiet, geluid, trillingen)</li>
-                </ul>
+                <img src="CRW_3557.jpg" alt="Metingen" class="card-img">
+                <div class="card-content">
+                    <h3>Montage & Metingen</h3>
+                    <p>Complete service van de eerste ontwikkeling tot de finale opstart ter plaatse.</p>
+                    <ul>
+                        <li>Uitbalanceren op locatie</li>
+                        <li>Trillings- en geluidsmetingen</li>
+                        <li>Debiet- en drukmetingen</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Sectie -->
     <section id="contact">
         <h2>Neem Contact Op</h2>
         <div class="contact-grid">
@@ -139,27 +171,23 @@
                 <p>B-9200 Dendermonde, België</p>
                 <br>
                 <p>📞 +32 (0) 52 22 12 56</p>
-                <p>🖷 +32 (0) 52 20 36 73</p>
-                <p>✉️ <a href="mailto:sales@fima.be" style="color: #004b87;">sales@fima.be</a></p>
-                <br><br>
+                <p>✉️ <a href="mailto:sales@fima.be" style="color: #004b87; font-weight: bold;">sales@fima.be</a></p>
             </div>
             <div>
                 <h3>Ons Team</h3>
                 <ul class="team-list">
-                    <li><strong>Tom Van Uytfang</strong> - CEO<br><a href="mailto:Tom_VanUytfang@Fima.be">Tom_VanUytfang@Fima.be</a></li>
-                    <li><strong>Heidi Vandenbroeck</strong> - Boekhouding/Administratie<br><a href="mailto:Heidi_Vandenbroeck@fima.be">Heidi_Vandenbroeck@fima.be</a></li>
-                    <li><strong>Kathleen De Coninck</strong> - Secretariaat<br><a href="mailto:Kathleen_DeConinck@fima.be">Kathleen_DeConinck@fima.be</a></li>
-                    <li><strong>Peter Floru</strong> - Mechanical Engineer<br><a href="mailto:Peter_Floru@Fima.be">Peter_Floru@Fima.be</a></li>
-                    <li><strong>Carlos Van Nieuwenborgh</strong> - Designer<br><a href="mailto:Carlos_Van_Nieuwenborgh@Fima.be">carlos_Van_Nieuwenborgh@Fima.be</a></li>
+                    <li><strong>Tom Van Uytfang</strong> - CEO</li>
+                    <li><strong>Heidi Vandenbroeck</strong> - Administratie</li>
+                    <li><strong>Peter Floru</strong> - Mechanical Engineer</li>
+                    <li><strong>Carlos Van Nieuwenborgh</strong> - Designer</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 FIMA Airtechnic NV. Alle rechten voorbehouden.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">BE 0423.727.276</p>
+        <p>&copy; 2026 FIMA Airtechnic NV. Alle rechten voorbehouden.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">BE 0423.727.276 | Dendermonde, België</p>
     </footer>
 
 </body>
